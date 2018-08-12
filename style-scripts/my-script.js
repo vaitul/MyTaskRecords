@@ -52,6 +52,4 @@ $(document).ready(function(){
 		});
 		
 	}
-
-	$("#result-tabs").tabs();
 });
