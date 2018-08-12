@@ -33,8 +33,10 @@ $(document).ready(function(){
 				if(data!=0)
 				{
 					$("#RESULTS").html(data);
-					$("#RESULTS #result-tabs #home_result #wraper-tasks-list").click(function(){
-						$(this).children().css("display","block");
+					$("#RESULTS #result-tabs #home_result #wraper-tasks-list").hover(function(){
+						$("#RESULTS #result-tabs #home_result #wraper-tasks-list").eq($(this).index()).find("#task_description").stop().slideDown();
+					},function(){
+						$("#RESULTS #result-tabs #home_result #wraper-tasks-list").eq($(this).index()).find("#task_description").slideUp();
 					});
 				}
 				else
