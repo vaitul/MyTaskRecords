@@ -110,13 +110,23 @@ center{
 	font-weight: bold;
 }
 
-#RESULTS #home_result #wraper{
-	border:2px solid #f0f5f5;
+#RESULTS #home_result #wraper-tasks-list{
+	cursor: pointer;
+	border:0px solid #f0f5f5;
 	padding: 5px;
-	transition: 0.2s ease-in;
+	transition: 0.1;
+	padding-left:40px;
 }
-#RESULTS #home_result #wraper:hover{
-	border:2px solid #aaa;
-	padding-left:30px;
-	padding-right: 30px;
+#RESULTS #home_result #wraper-tasks-list:hover{
+	 border:0px solid #aaa;
+	 box-shadow:1px 2px 3px #aaa;
+	background: #fefefe;
+	border-radius: 2px;
+}
+#RESULTS #home_result #wraper-tasks-list #task_description{
+	display: none;
+}
+
+h1 .fa-frown-open{
+	margin-top:100px;
 }

@@ -30,7 +30,17 @@ $(document).ready(function(){
 	{
 		$.post( "action.php",{menu_home:1}, function( data ) {
   			$("#main-page #loader").fadeOut(100,function(){
-				$("#RESULTS").html(data);
+				if(data!=0)
+				{
+					$("#RESULTS").html(data);
+					$("#RESULTS #result-tabs #home_result #wraper-tasks-list").click(function(){
+						$(this).children().css("display","block");
+					});
+				}
+				else
+				{
+					$("#RESULTS").html("<center><h1><i class='fas fa-frown-open'> No data available yet</i></h1></center>");
+				}
 			});
 		});
 	}
@@ -50,6 +60,5 @@ $(document).ready(function(){
 				$("#RESULTS").html(data);
 			});
 		});
-		
 	}
 });
