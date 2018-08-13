@@ -30,8 +30,8 @@
 				echo "<p>
 						<b>$row[status]</b>
 					 </p>
-					 <pre id='task_description' style='white-space: pre-wrap; background:rgba(0,0,0,0); border:0px;'>
-					 	$row[task_description]
+					<pre id='task_description' style='white-space: pre-wrap; background:rgba(0,0,0,0); border:0px;'>
+$row[task_description]
 					 </pre>
 					</div>";
 			}

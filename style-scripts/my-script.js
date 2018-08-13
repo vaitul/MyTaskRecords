@@ -25,7 +25,6 @@ $(document).ready(function(){
 				break;
 		}
 	}
-
 	function menu_home()
 	{
 		$.post( "action.php",{menu_home:1}, function( data ) {
@@ -33,11 +32,26 @@ $(document).ready(function(){
 				if(data!=0)
 				{
 					$("#RESULTS").html(data);
-					$("#RESULTS #result-tabs #home_result #wraper-tasks-list").hover(function(){
-						$("#RESULTS #result-tabs #home_result #wraper-tasks-list").eq($(this).index()).find("#task_description").stop().slideDown();
-					},function(){
-						$("#RESULTS #result-tabs #home_result #wraper-tasks-list").eq($(this).index()).find("#task_description").slideUp();
+					var index = null;
+					$("#RESULTS #result-tabs #home_result #wraper-tasks-list").click(function(){
+						if(index != $(this).index())
+						{
+							$("#RESULTS #result-tabs #home_result #wraper-tasks-list").eq(index).css({
+							"cursor":"pointer",
+							"boxShadow":"0px 0px 0px #aaa",
+							"background": "#f0f5f5"
+							});
+							$("#RESULTS #result-tabs #home_result #wraper-tasks-list #task_description").slideUp();
+							$("#RESULTS #result-tabs #home_result #wraper-tasks-list").eq($(this).index()).find("#task_description").slideDown();
+							$("#RESULTS #result-tabs #home_result #wraper-tasks-list").eq($(this).index()).css({
+								"cursor":"auto",
+								"boxShadow":"1px 2px 3px #aaa",
+								"background": "#fefefe"
+							});
+							index = $(this).index();
+						}
 					});
+
 				}
 				else
 				{
