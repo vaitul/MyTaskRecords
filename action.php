@@ -26,11 +26,21 @@
 				<div id='home_result'> <ol>";
 			while($row = mysqli_fetch_array($data))
 			{
+				if($row['status']=='-1')
+					$status = "<span> <i class='fas fa-circle' style='color:#ea4141;zoom:1.1;'> </i> Not Started <span> &nbsp;&nbsp; 
+							   <span> <i class='fa fa-calendar-alt' style='color:#2193b0;zoom:1.1;'> </i> $row[deadline] </span>";
+				if($row['status']=='0')
+					$status = "<span> <i class='fas fa-circle' style='color:#edd315;zoom:1.1;'> </i> Running <span>  &nbsp;&nbsp 
+							   <span> <i class='fa fa-calendar-alt' style='color:#2193b0;zoom:1.1;'> </i> $row[deadline] </span>";
+				if($row['status']=='1')
+					$status = "<span> <i class='fas fa-circle' style='color:green;zoom:1.1;'> </i> Copleted <span>  &nbsp;&nbsp 
+							   <span> <i class='fa fa-calendar-alt' style='color:#2193b0;zoom:1.1;'> </i> $row[deadline] </span>";
 				echo "<div id='wraper-tasks-list'><h4><li> $row[task_name]</li></h4>";
 				echo "<p>
-						<b>$row[status]</b>
+						<b>$status</b>
 					 </p>
 					<pre id='task_description' style='white-space: pre-wrap; background:rgba(0,0,0,0); border:0px;'>
+					<div id='underline'></div>
 $row[task_description]
 					 </pre>
 					</div>";
