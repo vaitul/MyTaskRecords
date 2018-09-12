@@ -1,4 +1,10 @@
 $(document).ready(function(){
+
+	/*$("#search-query").keyup(function(){
+		var query = this.value;
+		$("#wraper-tasks-list").html(this.value);
+	});*/
+
 	menuLoader("home");
 	$("#header #menu ul li").click(function(){
 		menuLoader($(this).attr("id"));
