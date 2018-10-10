@@ -49,13 +49,29 @@
 	</div>
 	<div class="row">
 		<div id="main-page" class="col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-offset-0 col-xs-12 ">
+			
+			<div id="panel">
+
+				<div class="form-group" style="float:right;">
+				<div class="input-group">
+					<span class="input-group-addon" style="background:#eee;padding:5px;">View By</span>
+					<select class="form-control" name="viewby" id="viewby" style="width:110px;height:30px;padding:0px 7px;">
+						<option value="all">All</option>
+						<option value="-1">Not Started</option>
+						<option value="0">Running</option>
+						<option value="1">Completed</option>
+					</select>
+				</div>
+				</div>
+
+			</div>
 			<div id="RESULTS" class="col-lg-offset-0 col-lg-12 col-md-offset-0 col-md-12 col-sm-offset-0 col-sm-12 col-xs-offset-0 col-xs-12">
 			</div>
 			<center><span  id="loader"><img src="IMAGES/loader.gif"><br><br>Loading...</span></center>
 
 			<div class="row">
 				<div id="footer" class="col-lg-offset-0 col-lg-12 col-md-offset-0 col-md-12 col-sm-offset-0 col-sm-12 col-xs-offset-0 col-xs-12 ">
-					<p><a target="_blank" href="https://www.linkedin.com/in/vaitul-bhayani-833545154/"><i class="fab fa-linkedin"> </i> LinkedIn</a> | <a target="_blank" href="https://www.facebook.com/Vaitul-Bhayani-402876460076160/"><i class="fab fa-facebook"> </i> Facebook</a> | <a target="_blank" href="https://www.instagram.com/vaitul_bhayani/"><i class="fab fa-instagram"> </i> Instagram</a> | <a target="_blank" href="https://twitter.com/vaitul_bhayani"><i class="fab fa-twitter-square"> </i> Twitter</a></p>
+					<p><a target="_blank" href="https://www.linkedin.com/in/vaitul-bhayani-833545154/"><i class="fab fa-linkedin"> </i> LinkedIn</a> | <a target="_blank" href="https://www.facebook.com/Vaitul-Bhayani-402876460076160/"><i class="fab fa-facebook"> </i> Facebook</a> | <a target="_blank" href="https://www.instagram.com/vaitul_bhayani/"><i class="fab fa-instagram"> </i> Instagram</a> | <a target="_blank" href="https://twitter.com/vaitulbhayani"><i class="fab fa-twitter-square"> </i> Twitter</a></p>
 				</div>				
 			</div>
 		</div>

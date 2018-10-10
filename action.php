@@ -35,7 +35,7 @@
 				if($row['status']=='1')
 					$status = "<span> <i class='fas fa-circle' style='color:green;zoom:1.1;'> </i> Copleted <span>  &nbsp;&nbsp 
 							   <span> <i class='fa fa-calendar-alt' style='color:#2193b0;zoom:1.1;'> </i> $row[deadline] </span>";
-				echo "<div id='wraper-tasks-list'><h4><li> $row[task_name]</li></h4>";
+				echo "<div id='wraper-tasks-list'><h4><li id='taskid-$row[id]'> $row[task_name]</li></h4>";
 				echo "<p>
 						<b>$status</b>
 					 </p>

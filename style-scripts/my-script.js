@@ -1,9 +1,35 @@
 $(document).ready(function(){
 
-	/*$("#search-query").keyup(function(){
-		var query = this.value;
-		$("#wraper-tasks-list").html(this.value);
-	});*/
+	
+	$("#viewby").hide();
+
+	LOAD='';
+	$("#search-query").keyup(function(){
+		if(LOAD!='home')
+			menuLoader("home");
+		var query = this.value.toLowerCase();
+		var keywords = query.split(" ");
+		j='';
+		for(i=1;j!=null;i++)
+		{
+			j = $("#taskid-"+i).html().toLowerCase();
+			if(query==j || i==query)
+			{
+				$("#main-page_tag").html("Results : ");
+				$("#taskid-"+i).parent().parent().show();
+			}
+			else if(query=='')
+			{
+				$("#main-page_tag").html("");
+				$("#taskid-"+i).parent().parent().show();
+			}
+			else
+			{
+				$("#taskid-"+i).parent().parent().hide();
+			}
+		}
+	});
+
 
 	menuLoader("home");
 	$("#header #menu ul li").click(function(){
@@ -12,6 +38,7 @@ $(document).ready(function(){
 
 	function menuLoader(load)
 	{
+		LOAD = load;
 		$("#RESULTS").html("");
 		$("#main-page #loader").fadeIn(100);
 		$("#header #menu ul li a").removeClass("menu-active");
