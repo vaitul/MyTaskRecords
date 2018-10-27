@@ -4,9 +4,12 @@
 
 	class MyAction extends DataBase
 	{
-		public function GetHomeName($table)
+		public function GetHomeName($status)
 		{
-			return mysqli_query($this->con,"SELECT * FROM `$table`");
+			if($status!="all" && $status!="--Sort By--")
+				return mysqli_query($this->con,"SELECT * FROM `tasks` WHERE `status`= '$status' ");
+			else
+				return mysqli_query($this->con,"SELECT * FROM `tasks`");
 		}
 		public function GetHomeFull($table)
 		{
@@ -16,8 +19,9 @@
 
 	if(isset($_POST['menu_home']))
 	{
+		$status = $_POST['menu_home'];
 		$myaction = new MyAction;
-		$data = $myaction->GetHomeName("tasks");
+		$data = $myaction->GetHomeName($status);
 		$row = mysqli_num_rows($data);
 		if($row)
 		{
@@ -27,14 +31,14 @@
 			while($row = mysqli_fetch_array($data))
 			{
 				if($row['status']=='-1')
-					$status = "<span> <i class='fas fa-circle' style='color:#ea4141;zoom:1.1;'> </i> Not Started <span> &nbsp;&nbsp; 
-							   <span> <i class='fa fa-calendar-alt' style='color:#2193b0;zoom:1.1;'> </i> $row[deadline] </span>";
+					$status = "<span> <i class='fas fa-circle' style='color:#ea4141;zoom:1.1;'> </i> Pending <span> &nbsp;&nbsp; 
+							   <span> <i class='fa fa-calendar-alt' style='color:#2193b0;zoom:1.1;'> </i><span> $row[deadline]</span> </span>";
 				if($row['status']=='0')
-					$status = "<span> <i class='fas fa-circle' style='color:#edd315;zoom:1.1;'> </i> Running <span>  &nbsp;&nbsp 
-							   <span> <i class='fa fa-calendar-alt' style='color:#2193b0;zoom:1.1;'> </i> $row[deadline] </span>";
+					$status = "<span> <i class='fas fa-circle' style='color:#edd315;zoom:1.1;'> </i> Started <span>  &nbsp;&nbsp 
+							   <span> <i class='fa fa-calendar-alt' style='color:#2193b0;zoom:1.1;'> </i> <span>$row[deadline]</span> </span>";
 				if($row['status']=='1')
 					$status = "<span> <i class='fas fa-circle' style='color:green;zoom:1.1;'> </i> Copleted <span>  &nbsp;&nbsp 
-							   <span> <i class='fa fa-calendar-alt' style='color:#2193b0;zoom:1.1;'> </i> $row[deadline] </span>";
+							   <span> <i class='fa fa-calendar-alt' style='color:#2193b0;zoom:1.1;'> </i> <span>$row[deadline]</span> </span>";
 				echo "<div id='wraper-tasks-list'><h4><li id='taskid-$row[id]'> $row[task_name]</li></h4>";
 				echo "<p>
 						<b>$status</b>

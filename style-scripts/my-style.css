@@ -20,7 +20,6 @@ body{
 	background: #2193b0;  /* fallback for old browsers */
 	background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);  /* Chrome 10-25, Safari 5.1-6 */
 	background: linear-gradient(to right, #6dd5ed, #2193b0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-	height:65px;
 	line-height: 60px;
 	position: fixed;
 	top: 0;
@@ -28,6 +27,17 @@ body{
 	z-index: 9999;
 	box-shadow: 0px 1px 3px #666;
 }
+
+#header .fa-bars{
+	font-size: 20pt;
+	color: #000;
+	padding-top:20px;
+}
+
+#header .row{
+	margin-top:3px;
+}
+
 #header p{
 	font-size: 20pt;
 	font-family: 'Bree Serif', serif;
@@ -92,8 +102,28 @@ body{
 #main-page{
 	min-height:100vh;
 	background: #f0f5f5;
-	padding-top: 100px;
 	padding-bottom: 50px;
+}
+
+#main-page .arrows{
+	background: #eeddaa;
+	font-size: 20pt;
+	padding-left: 8px;
+	padding-top:3px;
+	width: 40px;
+	border-radius: 5px;
+	height: 40px;
+	cursor: pointer;
+	opacity: 0.7;
+	position: fixed;
+}
+#main-page #downArrow{
+	right: 15px;
+}
+#main-page #upArrow{
+	right: 15px;
+	bottom:30px;
+	display: none;
 }
 
 #main-page center #loader
@@ -101,14 +131,41 @@ body{
 	display: none;
 }
 #main-page center #loader img{
-	margin-top: 30vh;
+	margin-top: 20vh;
 	width: 100px;
 }
 
-#main-page #panel{
-	border-bottom: 1px solid #000;
-	border-radius: 0px;
-  	margin: 0px -15px;
+#main-page #pannel{
+	border-bottom:1px solid #ddd;
+	padding-bottom: 15px;
+	z-index: 1;
+	width: 320px;
+}
+
+#main-page #pannel #viewby-div{
+	float: right;
+}
+
+#main-page #pannel #addButton,#deleteButton,#viewby{
+	margin: 0px 0px;
+	color: #555;
+	background: #eee;
+	border: 1px solid #ccc;
+	height: 25px;
+}
+#main-page #pannel #addButton:hover,#viewby:hover,#deleteButton:hover{
+	background: #fefefe;
+	border: 1px solid #aaa;
+	height: 25px;
+}
+#main-page #pannel #addButton{
+}
+#main-page #pannel #viewby{
+	margin-left: -5px;
+}
+#main-page #pannel #deleteButton{
+	margin-left: -6px;
+	border-right: 0px solid #ccc;
 }
 
 #footer{
@@ -136,7 +193,9 @@ center{
 	color: #aaa;
 	font-weight: bold;
 }
-
+#RESULTS{
+	margin-top:40px;
+}
 #RESULTS #home_result #wraper-tasks-list{
 	cursor: pointer;
 	border:2px solid rgba(0,0,0,0);
